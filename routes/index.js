@@ -3,11 +3,11 @@ const router = express.Router();
 
 //for getting login/landing page
 router.get("/", (req, res) => {
-  res.send("Login");
+  res.render("login");
 });
 //for getting Dashboard
 router.get("/dashboard", (req, res) => {
-  res.send("Dashboard");
+  res.render("dashboard");
 });
 
 module.exports = router;
