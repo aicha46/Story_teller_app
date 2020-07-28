@@ -2,8 +2,10 @@ const path = require("path");
 const express = require("express");
 const express_session = require("express-session");
 const dotenv = require("dotenv");
+const mongoose = require("mongoose");
 const passport = require("passport");
 const morgan = require("morgan");
+const Mongostore = require("connect-mongo")(express_session);
 var exphbs = require("express-handlebars");
 
 const connectDB = require("./config/db");
@@ -25,6 +27,8 @@ app.use(
     secret: "keyboard cat",
     resave: false,
     saveUninitialized: false, //that mean dnt create a session if theres nothing
+    //store the session in the db
+    //   store: new Mongostore({ mongooseConnection: mongoose.connection }),
   })
 );
 
